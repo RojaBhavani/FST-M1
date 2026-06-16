@@ -1,0 +1,4 @@
+---- ACTIVITY 4 ----
+ALTER TABLE SALESMAN
+ADD salesman_grade int;
+Update salesman set salesman_grade = 100;
