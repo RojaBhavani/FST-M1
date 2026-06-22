@@ -1,0 +1,14 @@
+---- Activity 8 ------
+SELECT customer_id, MAX(purchase_amount) MAX_AMOUNT
+FROM ORDERS
+GROUP BY customer_id;
+----------------------------------------------------------
+SELECT SALESMAN_ID,ORDER_DATE, MAX(purchase_amount) MAX_AMOUNT
+FROM ORDERS
+HAVING ORDER_DATE = TO_DATE('2012/08/17', 'YYYY/MM/DD')
+GROUP BY SALESMAN_ID,ORDER_DATE;
+-------------------------------------------------------
+SELECT ORDER_NO,ORDER_DATE, MAX(purchase_amount) MAX_AMOUNT
+FROM ORDERS
+HAVING purchase_amount IN(2030, 3450, 5760, 6000)
+GROUP BY ORDER_NO,ORDER_DATE,PURCHASE_AMOUNT;

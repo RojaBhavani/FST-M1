@@ -1,0 +1,24 @@
+---- ACTIVITY 7 ----
+SELECT CUSTOMER_ID, SUM(PURCHASE_AMOUNT)
+FROM ORDERS
+GROUP BY CUSTOMER_ID;
+-------------------------------------------------------------------------------
+SELECT CUSTOMER_ID, ROUND(AVG(PURCHASE_AMOUNT),0) Avg_Amount
+FROM ORDERS
+GROUP BY CUSTOMER_ID
+ORDER BY CUSTOMER_ID;
+-------------------------------------------------------------------------------
+SELECT CUSTOMER_ID, MAX(PURCHASE_AMOUNT) Max_Amount
+FROM ORDERS
+GROUP BY CUSTOMER_ID
+ORDER BY CUSTOMER_ID;
+--------------------------------------------------------------------------------
+SELECT SALESMAN_ID, MIN(PURCHASE_AMOUNT) Min_Amount
+FROM ORDERS
+GROUP BY SALESMAN_ID
+ORDER BY SALESMAN_ID;
+--------------------------------------------------------------------------------
+SELECT SALESMAN_ID, COUNT(*) Headcount
+FROM ORDERS
+GROUP BY SALESMAN_ID
+ORDER BY SALESMAN_ID;

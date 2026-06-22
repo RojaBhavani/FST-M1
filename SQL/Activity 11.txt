@@ -1,0 +1,17 @@
+----ACTIVITY 11 ------
+SELECT CUSTOMER_ID, CUSTOMER_NAME FROM CUSTOMERS a
+WHERE 1<(SELECT COUNT(*) FROM orders b WHERE a.CUSTOMER_ID = b.CUSTOMER_ID)
+UNION
+SELECT SALESMAN_ID, SALESMAN_NAME FROM SALESMAN b
+WHERE 1<(SELECT COUNT(*) FROM ORDERS c WHERE b.SALESMAN_ID = c.SALESMAN_ID)
+ORDER BY CUSTOMER_NAME;
+-------------------------------------------------------------------------------
+SELECT a.a.SALESMAN_ID, a.a.SALESMAN_NAME, o.o.ORDER_NO, 'highest on', o.ORDER_DATE, 
+o.o.PURCHASE_AMOUNT FROM salesman a, orders o
+WHERE a.salesman_id=o.salesman_id
+AND o.purchase_amount=(SELECT MAX(purchase_amount) FROM orders c WHERE c.order_date = o.order_date)
+UNION
+SELECT a.salesman_id, a.salesman_name, o.order_no, 'lowest on', o.order_date, o.purchase_amount FROM salesman a, orders o
+WHERE a.salesman_id=o.salesman_id
+AND o.purchase_amount=(SELECT MIN(purchase_amount) FROM orders c WHERE c.order_date = o.order_date)
+ORDER BY order_date;
